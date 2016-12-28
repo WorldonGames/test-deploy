@@ -1,6 +1,6 @@
 <?php
 	
-	$secret = 'Culo!';
+	$secret = 'ChiaveErrata';
 	$sign = $_SERVER['HTTP_X_HUB_SIGNATURE'];
 	
 	list($sha, $hash) = explode('=', $sign, 2);
