@@ -1,6 +1,6 @@
 <?php
 	
-	$secret = 'ChiaveErrata';
+	$secret = 'Culo!';
 	$sign = $_SERVER['HTTP_X_HUB_SIGNATURE'];
 	
 	list($sha, $hash) = explode('=', $sign, 2);
@@ -13,8 +13,9 @@
 	// Check if hashes are equivalent
 	if($hash !== $payloadHash){
 		die('Foca!!!');
-	}else{
-		echo('WORKZZZ');
 	}
+	
+	print_r($payload);
+
 
 ?>
