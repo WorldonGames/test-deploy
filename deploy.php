@@ -1,7 +1,7 @@
 <?php
 	
 	$secret = 'Culo!';
-	$sign = $_SERVER['HTTP_X-Hub-Signature'];
+	$sign = $_SERVER['HTTP_X_HUB_SIGNATURE'];
 	
 	list($sha, $hash) = explode('=', $sign, 2);
 	
