@@ -8,7 +8,7 @@
 	$payload = file_get_contents('php://input');
 	
 	// Calculate hash based on payload and the secret
-	$payloadHash = hash_hmac($algo, $payload, $secret);
+	$payloadHash = hash_hmac($sha, $payload, $secret);
 	
 	// Check if hashes are equivalent
 	if($hash !== $payloadHash){
