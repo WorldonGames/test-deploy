@@ -15,7 +15,10 @@
 		die('Foca!!!');
 	}
 	
-	print_r($payload);
-
+	if($payload->ref == "refs/heads/culocane"){
+		echo("branch OK");
+	}else{
+		echo("merda"};
+	}
 
 ?>
