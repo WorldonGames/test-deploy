@@ -7,11 +7,11 @@
 	
 	
 	$json = file_get_contents('php://input');
+	$jsonHash = hash_hmac($sha, $json, $secret);
+	
 	$payload = json_decode($json);	
 	
-	$payloadHash = hash_hmac($sha, $payload, $secret);
-	
-	if($hash !== $payloadHash){
+	if($hash !== $jsonHash){
 		die('Foca!!!');
 	}
 	
