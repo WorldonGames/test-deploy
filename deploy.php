@@ -1,5 +1,8 @@
 <?php
 
-	echo("Requested");
-
+if($_GET['sat'] == "Culo!"){
+	echo("Cazzo");
+}else{
+	echo("Shit");
+}
 ?>
