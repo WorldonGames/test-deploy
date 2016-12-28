@@ -1,6 +1,6 @@
 <?php
 
-if($_GET['sat'] == "Culo!"){
+if(isset($_GET['sat']) && ($_GET['sat'] == "Culo!")){
 	echo("Cazzo");
 }else{
 	echo("Shit");
