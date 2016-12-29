@@ -25,6 +25,7 @@ shell_exec('cd C:\inetpub\wwwroot\test-deploy && git merge');
 
 	}else{
 		echo("merda");
+		echo("asdaaas");
 	}
 
 ?>
