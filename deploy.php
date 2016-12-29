@@ -19,7 +19,7 @@
 		echo("branch OK");
 
 $out = array();
-exec('cmd /c whoami 2>&1',$out,$exitcode);
+exec('cmd C:\Users\Username\AppData\Local\GitHub\GitHub.appref-ms --open-shell 2>&1',$out,$exitcode);
 echo "<br />EXEC: ( exitcode : $exitcode )";
 echo "<hr /><pre>";
 print_r($out);
