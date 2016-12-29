@@ -19,7 +19,7 @@
 		echo("branch OK");
 
 $out = array();
-shell_exec('cd C:\inetpub\wwwroot\test-deploy && git merge');
+shell_exec('cd C:\inetpub\wwwroot\test-deploy && git fetch && git merge');
 
 
 
