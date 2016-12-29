@@ -3,7 +3,7 @@
 
 
 
-$output = shell_exec('cd C:\inetpub\wwwroot\test-deploy && git fetch && git merge');
+$output = shell_exec('C:\inetpub\wwwroot\test-deploy\culo.bat');
 echo "<pre>$output</pre>";
 
 
