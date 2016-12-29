@@ -17,6 +17,15 @@
 	
 	if($payload->ref == "refs/heads/culocane"){
 		echo("branch OK");
+
+$out = array();
+exec('cmd /c whoami 2>&1',$out,$exitcode);
+echo "<br />EXEC: ( exitcode : $exitcode )";
+echo "<hr /><pre>";
+print_r($out);
+echo "</pre>";
+
+
 	}else{
 		echo("merda");
 	}
