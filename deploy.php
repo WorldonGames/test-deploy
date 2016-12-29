@@ -17,8 +17,6 @@
 	
 	if($payload->ref == "refs/heads/culocane"){
 		echo("branch OK");
-
-$out = array();
 shell_exec('cd C:\inetpub\wwwroot\test-deploy && git fetch && git merge');
 
 
@@ -26,5 +24,9 @@ shell_exec('cd C:\inetpub\wwwroot\test-deploy && git fetch && git merge');
 	}else{
 		echo("merd");
 	}
+
+
+
+
 
 ?>
