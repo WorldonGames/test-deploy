@@ -22,7 +22,7 @@ shell_exec('cd C:\inetpub\wwwroot\test-deploy && git fetch && git merge');
 
 
 	}else{
-		echo("merd");
+		echo("merdaaaaaaaaaaaaaaaaaaaaaaaaa");
 	}
 
 
