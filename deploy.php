@@ -1,5 +1,5 @@
 <?php
-	
+	//Cose
 	$secret = 'Culo!'; 					//Chiave Segreta di github, nonché password manuale
 	$hash = 'Cenere';						//Valore a caso per richieste non-git 
 	$jsonHash = 'Ebreo';				//Altro valore a caso diverso dal precedente
@@ -24,7 +24,6 @@
 		//Definizione dei comandi
 		$cmds = array(
 			'whoami',
-			'git fetch',
 			'git pull',
 			'git status'
 		);
