@@ -1,36 +1,41 @@
 <?php
-	$secret = 'Culo!';
-	$hash = 'Cenere';
-	$jsonHash = 'Ebreo';
 	
-
+	$secret = 'Culo!'; 					//Chiave Segreta di github, nonché password manuale
+	$hash = 'Cenere';						//Valore a caso per richieste non-git 
+	$jsonHash = 'Ebreo';				//Altro valore a caso diverso dal precedente
+	
+	//Controlla se la richiesta proviene da github
 	if(isset($_SERVER['HTTP_X_HUB_SIGNATURE'])){
-		$sign = $_SERVER['HTTP_X_HUB_SIGNATURE'];
-		list($sha, $hash) = explode('=', $sign, 2);
-		$json = file_get_contents('php://input');
-		$jsonHash = hash_hmac($sha, $json, $secret);
-		$payload = json_decode($json);
-		$branch = $payload->ref;
+		$sign = $_SERVER['HTTP_X_HUB_SIGNATURE'];				//Assegna la variabile firma
+		list($sha, $hash) = explode('=', $sign, 2);			//Separa la firma dal tipo di hash
+		$json = file_get_contents('php://input');				//Ottiene il carico inviato da git
+		$jsonHash = hash_hmac($sha, $json, $secret);		//Calcola l'hash del carico sulla base della chiave segreta
+		$payload = json_decode($json);									//Decodifica il carico
+		$branch = $payload->ref;												//Legge il valore della branch
 	}
 
-	
+	//Controlla l'autenticazione (git o manuale)
 	if(($hash == $jsonHash && ($branch == "refs/heads/master")) || (isset($_POST['auth']) && ($_POST['auth'] == $secret))){
-		//Comandi
+		
+		//Messaggi da stampare per l'invio delle credenziali
 		$valore = "********";
+		$output = 'Credenziali verificate, inizio procedura di sincronizzazione'."\n\n";
+		
+		//Definizione dei comandi
 		$cmds = array(
 			'whoami',
 			'git fetch',
 			'git pull',
 			'git status'
 		);
-		// Run the commands for output
-		$output = 'Credenziali verificate, inizio procedura di sincronizzazione'."\n\n";
+
+		//Elaborazione dei comandi
 		foreach($cmds AS $cmd){
-			// Run it
+			//Esecuzione
 			$tmp = shell_exec($cmd);
-			// Output
+			//Restituzione del risultato
 			$output .= "C:\deploy.wog>{$cmd}\n";
-			$output .= htmlentities(trim($tmp)) . "\n\n";
+			$output .= htmlentities(trim($tmp))."\n\n";
 		}
 	}
 ?>
@@ -88,10 +93,3 @@ perform a manual synchronization, please verify your credentials below:
 		</div>
 	</body>
 </html>
-
-<?php
-	
-	if($payload->ref == "refs/heads/culocane") echo "llah";
-
-
-?>
