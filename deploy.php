@@ -10,14 +10,16 @@
 		$json = file_get_contents('php://input');
 		$jsonHash = hash_hmac($sha, $json, $secret);
 		$payload = json_decode($json);
+		$branch = $payload->ref;
 	}
 
 	
-	if( $hash == $jsonHash ||	(isset($_POST['auth']) && ($_POST['auth'] == $secret))){
+	if(($hash == $jsonHash && ($branch == "refs/heads/master")) || (isset($_POST['auth']) && ($_POST['auth'] == $secret))){
 		//Comandi
 		$valore = "********";
 		$cmds = array(
 			'whoami',
+			'git fetch',
 			'git pull',
 			'git status'
 		);
@@ -88,27 +90,8 @@ perform a manual synchronization, please verify your credentials below:
 </html>
 
 <?php
-	die();
 	
-
-	if($hash !== $jsonHash){
-		die('Foca!!!');
-	}
-	
-	if($payload->ref == "refs/heads/culocane"){
-		echo("branch OK");
-		shell_exec('cd C:\inetpub\wwwroot\test-deploy && git fetch && git merge 2>&1');
-
-
-
-	}else{
-		echo("merdaaaaaaaaaaaaaaaaaaaaaaaa");
-		echo("");
-
-	}
-
-
-
+	if($payload->ref == "refs/heads/culocane") echo "llah";
 
 
 ?>
