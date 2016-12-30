@@ -1,12 +1,4 @@
 <?php
-$output = shell_exec('C:\inetpub\wwwroot\test-deploy\culo.bat 2>&1');
+$output = shell_exec('C:\inetpub\wwwroot\test-deploy\culo.bat');
 echo "<pre>$output</pre>";
-
-
-
-
-
-
-
-
 ?>
