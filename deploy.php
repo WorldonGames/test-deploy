@@ -3,6 +3,7 @@
 	$hash = 'Cenere';
 	$jsonHash = 'Ebreo';
 	
+
 	if(isset($_SERVER['HTTP_X_HUB_SIGNATURE'])){
 		$sign = $_SERVER['HTTP_X_HUB_SIGNATURE'];
 		list($sha, $hash) = explode('=', $sign, 2);
@@ -10,6 +11,7 @@
 		$jsonHash = hash_hmac($sha, $json, $secret);
 		$payload = json_decode($json);
 	}
+
 	
 	if( $hash == $jsonHash ||	(isset($_POST['auth']) && ($_POST['auth'] == $secret))){
 		//Comandi
@@ -89,10 +91,6 @@ perform a manual synchronization, please verify your credentials below:
 	die();
 	
 
-	
-	
-
-	
 	if($hash !== $jsonHash){
 		die('Foca!!!');
 	}
@@ -106,6 +104,7 @@ perform a manual synchronization, please verify your credentials below:
 	}else{
 		echo("merdaaaaaaaaaaaaaaaaaaaaaaaa");
 		echo("");
+
 	}
 
 
